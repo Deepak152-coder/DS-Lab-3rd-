@@ -5,10 +5,11 @@ struct Node
 {
     int val;
     Node *next;
+
     Node(int x)
     {
-        val = x;
-        next = NULL;
+        this->val = x;
+        this->next = NULL;
     }
 };
 
@@ -82,14 +83,14 @@ void Display(Node *head)
 {
     if (head == NULL)
     {
-        cout << endl;
+        // cout << endl;
         return;
     }
-    cout << head->val;
-    if (head->next != NULL)
-    {
-        cout << " -> ";
-    }
+    cout << head->val << " ";
+    // if (head->next != NULL)
+    // {
+    //     cout << " -> ";
+    // }
     Display(head->next);
 }
 

@@ -16,14 +16,15 @@ struct Student
     }
 };
 
+// Inserting in ascending order based on marks
 void insertStudent(Student *&head, string name, int marks)
 {
-    Student *newNode = new Student(name, marks);
+    Student *t = new Student(name, marks);
 
     if (head == nullptr || marks < head->marks)
     {
-        newNode->next = head;
-        head = newNode;
+        t->next = head;
+        head = t;
         return;
     }
 
@@ -33,8 +34,8 @@ void insertStudent(Student *&head, string name, int marks)
         temp = temp->next;
     }
 
-    newNode->next = temp->next;
-    temp->next = newNode;
+    t->next = temp->next;
+    temp->next = t;
 }
 
 void displayAbove(Student *head, int threshold)

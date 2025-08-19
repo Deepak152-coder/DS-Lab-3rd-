@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int n)
+void sortArray(int arr[], int n)
 {
     for (int i = 0; i < n - 1; i++)
     {
-        for (int j = 0; j < n - 1 - i; j++)
+        for (int j = i + 1; j < n; j++)
         {
-            if (arr[j] > arr[j + 1])
+            if (arr[i] > arr[j])
             {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                int t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
             }
         }
     }
@@ -28,8 +28,8 @@ int maxOverlap(int lines[][2], int n)
     }
 
     // sort using bubble sort
-    bubbleSort(start, n);
-    bubbleSort(end, n);
+    sortArray(start, n);
+    sortArray(end, n);
 
     int i = 0, j = 0;
     int count = 0, maxCount = 0;
