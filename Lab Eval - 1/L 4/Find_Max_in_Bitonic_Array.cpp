@@ -4,16 +4,15 @@ using namespace std;
 int findMaxBitonic(int arr[], int n)
 {
     int low = 0, high = n - 1;
+    int maxVal = -1;
 
-    while (low <= high)
+    while (low < high)
     {
-        if (low == high)
-            return arr[low];
-
         int mid = low + (high - low) / 2;
 
         if (arr[mid] > arr[mid + 1])
         {
+            maxVal = arr[mid];
             high = mid;
         }
         else
@@ -22,7 +21,8 @@ int findMaxBitonic(int arr[], int n)
         }
     }
 
-    return -1;
+    maxVal = arr[low];
+    return maxVal;
 }
 
 int main()
